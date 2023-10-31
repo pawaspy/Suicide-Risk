@@ -34,7 +34,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random
 
 # Define the models to use
 models = [
-<<<<<<< HEAD
+
     ('Logistic Regression', LogisticRegression(), {'C': [0.1, 1, 10], 'penalty': ['l1', 'l2', 'elasticnet', 'none']}),
     ('Decision Tree', DecisionTreeClassifier(), {'max_depth': [3, 5, 7]}),
     ('Random Forest', RandomForestClassifier(), {'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]})
@@ -46,12 +46,7 @@ for name, model, params in models:
     
     # Hyperparameter tuning using grid search and cross-validation
     grid_search = HalvingGridSearchCV(model, params, cv=5, scoring='accuracy')
-=======
-    ('Logistic Regression', LogisticRegression()),
-    ('Decision Tree', DecisionTreeClassifier()),
-    ('Random Forest', RandomForestClassifier())
-]
-
+    
 # Define the hyperparameters to tune for each model
 params = [
     {'C': [0.1, 1, 10], 'penalty': ['l1', 'l2']},
@@ -65,7 +60,7 @@ for name, model in models:
     
     # Hyperparameter tuning using grid search and cross-validation
     grid_search = GridSearchCV(model, params, cv=5, scoring='accuracy')
->>>>>>> e50fb48 (Add-Suicide report)
+
     grid_search.fit(X_train, y_train)
     
     print('Best hyperparameters:', grid_search.best_params_)
@@ -94,9 +89,5 @@ for name, model in models:
     plt.xlabel('Predicted')
     plt.ylabel('Actual')
     plt.show()
-    
-<<<<<<< HEAD
+
     print('\n')
-=======
-    print('\n')
->>>>>>> e50fb48 (Add-Suicide report)
